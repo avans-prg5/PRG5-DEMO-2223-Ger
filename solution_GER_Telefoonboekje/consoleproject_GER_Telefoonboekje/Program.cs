@@ -6,7 +6,8 @@
         {
             Book book = new Book();
             //book.PrintSortedByLastName();
-            book.PrintAllPersons("Mister");
+            //book.PrintAllPersonsWithFirstNameAs("Mister");
+            book.PrintSortedByAge();
         }
     }
 }

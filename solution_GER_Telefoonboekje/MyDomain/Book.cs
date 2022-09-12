@@ -21,6 +21,10 @@ namespace wk1_solution_GER_Telefoonboekje
           new Person() { Firstname = "Peter",  LastName = "Gabriel",  Birthdate = new DateTime(1950,02,13)},
           new Person() { Firstname = "Mister", LastName = "Eduarte",  Birthdate = new DateTime(1949,01,01)},
           new Person() { Firstname = "Mister", LastName = "Zorro",    Birthdate = new DateTime(1957,10,01)},
+          new Person() { Firstname = "Paul",   LastName = "McCartney",Birthdate = new DateTime(1942,06,18)},
+          new Person() { Firstname = "Ad",     LastName = "Baantjer" ,Birthdate = new DateTime(1923,09,16)},
+          new Person() { Firstname = "Bea",    LastName = "Knol",     Birthdate = new DateTime(1989,09,12)},
+          new Person() { Firstname = "Celine", LastName = "Stakkeren",Birthdate = new DateTime(1989,09,12), MiddleName ="van"},
         };
 
         public void PrintSortedByLastName()
@@ -44,9 +48,9 @@ namespace wk1_solution_GER_Telefoonboekje
             //}
         }
 
-        public void PrintAllPersons(string fname)
+        public void PrintAllPersonsWithFirstNameAs(string fname)
         {
-            IEnumerable<Person> result =  from p in persons where p.Firstname==fname select p;
+            IEnumerable<Person> result = from p in persons where p.Firstname == fname select p;
             foreach (var p in result)
             {
                 Console.WriteLine(p.FullName);
@@ -54,5 +58,15 @@ namespace wk1_solution_GER_Telefoonboekje
 
         }
 
+        public void PrintSortedByAge()
+        {
+            IEnumerable<Person> result = persons
+                .OrderBy(p => p.Age);
+
+            foreach (var p in result)
+            {
+                Console.WriteLine(p.Age.ToString() + p.FullName);
+            }
+        }
     }
 }
