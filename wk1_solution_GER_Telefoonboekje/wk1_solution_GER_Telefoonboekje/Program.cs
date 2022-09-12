@@ -5,7 +5,8 @@
         static void Main(string[] args)
         {
             Book book = new Book();
-            book.PrintSortedByLastName();
+            //book.PrintSortedByLastName();
+            book.PrintAllPersons("Mister");
         }
     }
 }
