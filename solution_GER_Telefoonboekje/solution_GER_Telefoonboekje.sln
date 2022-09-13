@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyDomain", "MyDomain\MyDoma
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "consoleproject_GER_Telefoonboekje", "consoleproject_GER_Telefoonboekje\consoleproject_GER_Telefoonboekje.csproj", "{DA00023E-3398-4801-9F56-6950C7D579C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webproject_GER_Telefoonboekje", "webproject_GER_Telefoonboekje\webproject_GER_Telefoonboekje.csproj", "{1AB49D29-6E3A-4237-B660-A350AD14E6EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "webproject_GER_Telefoonboekje", "webproject_GER_Telefoonboekje\webproject_GER_Telefoonboekje.csproj", "{1AB49D29-6E3A-4237-B660-A350AD14E6EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
