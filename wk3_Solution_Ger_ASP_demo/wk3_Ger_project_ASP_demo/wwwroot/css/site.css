@@ -1,0 +1,25 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+h3.ger {
+    font-family: 'Lucida Handwriting';
+    font-size: 100px;
+    color: darkred;
+    background-color: antiquewhite;
+}
