@@ -15,11 +15,20 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color: aliceblue;
 }
 
-h3.ger {
+h3.nice {
     font-family: 'Lucida Handwriting';
-    font-size: 100px;
+    font-size: 60px;
     color: darkred;
     background-color: antiquewhite;
+}
+
+div.mylist{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+    color: black;
+    background-color: palegoldenrod;
+    margin-left: 10px;
 }

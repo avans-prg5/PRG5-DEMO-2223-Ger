@@ -1,0 +1,12 @@
+﻿@model IEnumerable<MyDomain.Person>
+
+
+<h3 class="nice">Phonebook</h3>
+<div class="mylist">
+    <ol>    
+            @foreach (var person in Model)
+            {
+              <li>@person.Firstname @person.MiddleName @person.LastName (@person.Age)</li>
+            }
+    </ol>
+</div>
