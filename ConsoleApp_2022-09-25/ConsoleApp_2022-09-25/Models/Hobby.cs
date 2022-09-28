@@ -10,6 +10,7 @@ namespace ConsoleApp_2022_09_25.Models
     public class Hobby
     {
         [Required]
+        [Key]
         public int Id { get; set; }
 
         [StringLength(50)]
@@ -24,5 +25,7 @@ namespace ConsoleApp_2022_09_25.Models
         {
             Title = "unknown";
         }
+
+        public virtual ICollection<Person> Participators { get; set; } = null!;
     }
 }

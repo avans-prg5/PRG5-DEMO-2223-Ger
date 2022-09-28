@@ -11,6 +11,7 @@ namespace ConsoleApp_2022_09_25.Models
     public class Person
     {
         [Required]
+        [Key]
         public int Id { get; set; }
 
         [StringLength(50)]
