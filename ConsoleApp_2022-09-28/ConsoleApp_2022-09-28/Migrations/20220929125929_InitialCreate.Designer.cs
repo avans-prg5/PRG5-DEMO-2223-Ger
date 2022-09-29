@@ -9,10 +9,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace ConsoleApp_2022_09_28.Migrations
+namespace ConsoleApp_2022_0928.Migrations
 {
     [DbContext(typeof(PhoneBookContext))]
-    [Migration("20220928143531_InitialCreate")]
+    [Migration("20220929125929_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

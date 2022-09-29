@@ -13,8 +13,5 @@
 
         public string FullName => FirstName + " " + LastName;
 
-
-
-
     }
 }

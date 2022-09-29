@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace ConsoleApp_2022_09_28.Migrations
+namespace ConsoleApp_2022_0928.Migrations
 {
     public partial class InitialCreate : Migration
     {

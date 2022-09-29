@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace ConsoleApp_2022_09_28.Migrations
+namespace ConsoleApp_2022_0928.Migrations
 {
     [DbContext(typeof(PhoneBookContext))]
     partial class PhoneBookContextModelSnapshot : ModelSnapshot

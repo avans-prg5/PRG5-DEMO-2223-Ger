@@ -20,12 +20,33 @@ namespace ConsoleApp_2022_09_28
             using (var context = new ContextFactory().CreateDbContext(new string[0]))
             {
 
-                context.Persons.AddRange(new LocalBook().Persons);
-
+                Console.WriteLine("= deleting all existing rows from DB PhoneBook =");
+                context.Persons.RemoveRange(context.Persons);
+                context.Hobbies.RemoveRange(context.Hobbies);
                 context.SaveChanges();
+
+                Console.WriteLine("= writing LocalBook content to PhoneBook =");
+                context.Persons.AddRange(new LocalBook().Persons);
+                context.SaveChanges();
+
+                Console.WriteLine("=== content ===");
+                context.Persons.ToList().ForEach(p =>
+                {
+                    Console.WriteLine(p.FullName);
+
+                    if (p.Hobbies != null)
+                    {
+                        p.Hobbies.ToList().ForEach(h =>
+                        {
+                            Console.WriteLine("  :" + h.Titel);
+                        });
+                    }
+                    else { Console.WriteLine("  : <none>"); }
+                });
 
 
             }
+
 
 
 
