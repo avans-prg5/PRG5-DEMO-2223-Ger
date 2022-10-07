@@ -1,6 +1,6 @@
-﻿using ConsoleApp_2022_09_28.Models;
+﻿using MyDomain.Models;
 
-namespace ConsoleApp_2022_09_28
+namespace ConsoleApp_2022_10_02
 {
     internal class Program
     {
