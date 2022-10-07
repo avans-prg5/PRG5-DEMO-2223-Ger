@@ -1,29 +1,33 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MyDomain.Models;
 
 namespace MVC_Project_2022_10_02.Controllers
 {
     public class HobbiesController : Controller
     {
-        // GET: HobbiesController1
+        // GET: HobbiesController
         public ActionResult Index()
         {
-            return View();
+            using (var context = new ContextFactory().CreateDbContext(new string[0]))
+            {
+                return View(context.Hobbies.ToList());
+            }
         }
 
-        // GET: HobbiesController1/Details/5
+        // GET: HobbiesController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: HobbiesController1/Create
+        // GET: HobbiesController/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: HobbiesController1/Create
+        // POST: HobbiesController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -38,13 +42,13 @@ namespace MVC_Project_2022_10_02.Controllers
             }
         }
 
-        // GET: HobbiesController1/Edit/5
+        // GET: HobbiesController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: HobbiesController1/Edit/5
+        // POST: HobbiesController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -59,13 +63,13 @@ namespace MVC_Project_2022_10_02.Controllers
             }
         }
 
-        // GET: HobbiesController1/Delete/5
+        // GET: HobbiesController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: HobbiesController1/Delete/5
+        // POST: HobbiesController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
