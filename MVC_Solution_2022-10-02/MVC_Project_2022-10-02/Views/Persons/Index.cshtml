@@ -21,7 +21,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Birthdate)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hobbies)
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -42,7 +44,6 @@
                     {
                         <li>@hobby.Titel</li>
                     }
-                    
                 </ul>
             </td>
             <td>
