@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MyDomain.Models;
+using System.Net;
 
 namespace MVC_Project_2022_10_02.Controllers
 {
@@ -19,11 +20,18 @@ namespace MVC_Project_2022_10_02.Controllers
         // GET: PersonsController/Details/5
         public ActionResult Details(int id)
         {
-            using (var context = new ContextFactory().CreateDbContext(new string[0]))
+            try
             {
+                using (var context = new ContextFactory().CreateDbContext(new string[0]))
+                {
+                    return View(context.Persons.FirstOrDefault(p => p.Id == id));
+                }
+            }
+            catch(Exception)
+            {
+                return RedirectToAction("Index", "Home");
             }
 
-            return View();
         }
 
         // GET: PersonsController/Create
@@ -60,24 +68,40 @@ namespace MVC_Project_2022_10_02.Controllers
         }
 
         // GET: PersonsController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            try
+            {
+                using (var context = new ContextFactory().CreateDbContext(new string[0]))
+                {
+                    return View(context.Persons.FirstOrDefault(p => p.Id == id));
+                }
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         // POST: PersonsController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, Person model)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                using (var context = new ContextFactory().CreateDbContext(new string[0]))
+                {
+                    context.Persons.Update(model);
+                    context.SaveChanges();
+                    return RedirectToAction("Index", "Persons");
+                }
             }
-            catch
+            catch(Exception)
             {
-                return View();
+                return RedirectToAction("Index", "Home");
             }
+        
         }
 
         // GET: PersonsController/Delete/5
