@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using MyDomain.Models;
 using System.Net;
 
@@ -13,7 +14,7 @@ namespace MVC_Project_2022_10_02.Controllers
         {
             using (var context = new ContextFactory().CreateDbContext(new string[0]))
             {
-                return View(context.Persons.ToList());
+                return View(context.Persons.Include("Hobbies").ToList());
             }
         }
 
