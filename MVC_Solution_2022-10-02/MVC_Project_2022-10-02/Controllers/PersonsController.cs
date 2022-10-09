@@ -12,6 +12,7 @@ namespace MVC_Project_2022_10_02.Controllers
         // GET: PersonsController
         public ActionResult Index()
         {
+            ViewBag.postfix = ".png";
             using (var context = new ContextFactory().CreateDbContext(new string[0]))
             {
                 return View(context.Persons.Include("Hobbies").ToList());
