@@ -348,5 +348,7 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# json configurations with DB connectionstring
 ConsoleApp_2022-09-28/ConsoleApp_2022-09-28/appsettings.json
-*.json
+MVC_Solution_2022-10-02/MVC_Project_2022-10-02/appsettings.json
