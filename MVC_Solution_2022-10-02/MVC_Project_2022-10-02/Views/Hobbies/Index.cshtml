@@ -1,35 +1,38 @@
 ﻿@model IEnumerable<MyDomain.Models.Hobby>
 
+
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Hobbies</h1>
+<h1 class="GS_title1">Hobbies</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Titel)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Titel)
-            </td>
-            <td>
+<div class="GS_flex-container">
+    @foreach (var item in Model)
+    {
+    <div> 
+            @if (@item.HobbyImage != null)
+            {
+               <img src="data:image/png;base64,@System.Convert.ToBase64String(@item.HobbyImage)" height="100"/>
+            }
+            else
+            {
+                <img src="~/Content/pics/browntoycar.png" height="100"/>
+            }
+            <br/>
+            <span class="GS_title1">@Html.DisplayFor(modelItem => item.Titel)</span>
+            <br/>
+            <span class="GS_small">
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+            </span>
+    </div>
+    }
+    <div><a asp-action="Create">
+       <img src="~/Content/pics/browntoycar.png" height="100"/>
+        <br/>
+        <span class="GS_title1">Create new</span>
+        </a>
+    </div>
+
+</div>

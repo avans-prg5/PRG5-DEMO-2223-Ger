@@ -12,8 +12,8 @@ using MyDomain.Models;
 namespace MyDomain.Migrations
 {
     [DbContext(typeof(PhoneBookContext))]
-    [Migration("20221002205611_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20221026102941_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -47,7 +47,11 @@ namespace MyDomain.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<byte[]>("HobbyImage")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<string>("Titel")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -68,7 +72,9 @@ namespace MyDomain.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
 
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");

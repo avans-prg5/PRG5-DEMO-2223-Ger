@@ -3,11 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC_Project_2022-10-02", "MVC_Project_2022-10-02\MVC_Project_2022-10-02.csproj", "{7A38086D-3943-447B-9168-15827BDE922C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVC_Project_2022-10-02", "MVC_Project_2022-10-02\MVC_Project_2022-10-02.csproj", "{7A38086D-3943-447B-9168-15827BDE922C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyDomain", "MyDomain\MyDomain.csproj", "{BA97912F-8D28-45B1-9B1B-842A39CB7513}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyDomain", "MyDomain\MyDomain.csproj", "{BA97912F-8D28-45B1-9B1B-842A39CB7513}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp_2022-10-02", "ConsoleApp_2022-10-02\ConsoleApp_2022-10-02.csproj", "{EC820139-428D-4F42-8261-AC80F6D551FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp_2022-10-02", "ConsoleApp_2022-10-02\ConsoleApp_2022-10-02.csproj", "{EC820139-428D-4F42-8261-AC80F6D551FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E2AFF0B6-BDB6-41C6-A369-9AD64581988F}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

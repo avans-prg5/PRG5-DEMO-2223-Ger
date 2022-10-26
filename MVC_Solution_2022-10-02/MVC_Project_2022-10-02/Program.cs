@@ -28,7 +28,7 @@ namespace MVC_Project_2022_10_02
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Persons}/{action=Index}/{id?}");
+                pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
         }

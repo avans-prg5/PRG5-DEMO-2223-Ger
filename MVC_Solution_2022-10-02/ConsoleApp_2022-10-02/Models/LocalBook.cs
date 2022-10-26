@@ -1,19 +1,38 @@
-﻿namespace MyDomain.Models
+﻿using MyDomain.Models;
+using ImageConverter = MyDomain.Models.ImageConverter;
+
+namespace ConsoleApp_2022_10_02
 {
     public class LocalBook
     {
         private readonly List<Person> _persons = new List<Person>();
+
+        private readonly ImageConverter _imageConverter = new ImageConverter();
+
+        private readonly string picLocation = "../../../../MVC_Project_2022-10-02/wwwroot/Content/pics/";
+
+
         public List<Person> Persons
         {
             get
             {
                 if (!_persons.Any())
                 {
-                    var hobby1 = new Hobby { Titel = "Zwemmen" };
-                    var hobby2 = new Hobby { Titel = "Dansen" };
-                    var hobby3 = new Hobby { Titel = "Zingen" };
-                    var hobby4 = new Hobby { Titel = "Wiskunde" };
-                    var hobby5 = new Hobby { Titel = "Paardrijden" };
+                    var hobby1 = new Hobby { Titel = "Zwemmen", HobbyImage = _imageConverter.FilePNGToByteArray(
+                        picLocation + "Zwemmen.png")
+                    };
+                    var hobby2 = new Hobby { Titel = "Dansen" , HobbyImage = _imageConverter.FilePNGToByteArray(
+                        picLocation + "Dansen.png")
+                    };
+                    var hobby3 = new Hobby { Titel = "Zingen"  ,HobbyImage = _imageConverter.FilePNGToByteArray(
+                        picLocation + "Zingen.png")
+                    };
+                    var hobby4 = new Hobby { Titel = "Wiskunde",HobbyImage = _imageConverter.FilePNGToByteArray(
+                        picLocation + "Wiskunde.png")
+                    };
+                    var hobby5 = new Hobby { Titel = "Paardrijden",HobbyImage = _imageConverter.FilePNGToByteArray(
+                        picLocation + "Paardrijden1.png")
+                    };
 
                     _persons.Add(new Person()
                     {
