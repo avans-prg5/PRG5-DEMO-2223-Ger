@@ -35,6 +35,29 @@ body {
     background-image: linear-gradient(white, mistyrose);
 }
 
+.GS_body4 {
+    margin: 10px;
+    background-color: lightgray;
+    color: black;
+}
+
+.GS_table {
+    border: solid;
+    border-width: 8px;
+    border-color: orangered;
+    background-color: lightyellow;
+    padding: 10px;
+    width: 100%;
+}
+
+.GS_td {
+    text-align:center;
+    background-color: white;
+    width: 10%;
+    height: 130px;
+}
+
+
 .GS_title1 {
     font-family: Harrington;
     font-size: 30px;
@@ -58,9 +81,12 @@ body {
         border-color: slategrey;
         padding: 20px; /*binnenin afstand tot de rand*/
     }
+
 .GS_small {
     font-size: 14px;
     font-family: Calibri;
     font-weight: normal;
 }
 
+.GS_table {
+}

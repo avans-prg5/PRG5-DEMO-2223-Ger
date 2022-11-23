@@ -352,3 +352,6 @@ MigrationBackup/
 # json configurations with DB connectionstring
 ConsoleApp_2022-09-28/ConsoleApp_2022-09-28/appsettings.json
 MVC_Solution_2022-10-02/MVC_Project_2022-10-02/appsettings.json
+
+# Migrations 
+MVC_Solution_2022-10-02/MyDomain/Migrations/

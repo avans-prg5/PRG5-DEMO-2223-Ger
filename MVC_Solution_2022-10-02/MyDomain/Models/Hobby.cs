@@ -1,7 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyDomain.Models
 {
+
+    [Index(nameof(Hobby.Titel), IsUnique = true)]
     public class Hobby
     {
  
@@ -9,8 +12,9 @@ namespace MyDomain.Models
         public int Id { get; set; }
 
         [StringLength(50)]
-        [Required]
-        public string? Titel { get; set; }
+        [Required(ErrorMessage ="Geef de hobby een Titel.")]
+
+        public string Titel { get; set; }
 
         public byte[]? HobbyImage { get; set; }
 
