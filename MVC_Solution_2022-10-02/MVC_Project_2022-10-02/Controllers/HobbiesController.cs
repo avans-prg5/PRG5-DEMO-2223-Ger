@@ -1,17 +1,20 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using MVC_Project_2022_10_02.Models;
 using MyDomain.Models;
+using ImageConverter = MyDomain.Models.ImageConverter;
 
 namespace MVC_Project_2022_10_02.Controllers
 {
     public class HobbiesController : Controller
     {
+        private readonly ImageConverter _imageConverter = new ImageConverter();
+
         // GET: HobbiesController
         public ActionResult Index()
         {
             using (var context = new ContextFactory().CreateDbContext(new string[0]))
             {
-                return View(context.Hobbies.ToList());
+                return View(context.Hobbies.OrderBy(h=>h.Titel).ToList());
             }
         }
 
@@ -30,10 +33,20 @@ namespace MVC_Project_2022_10_02.Controllers
         // POST: HobbiesController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(HobbyViewModel hobbyVM)
         {
             try
             {
+                using (var context = new ContextFactory().CreateDbContext(new string[0]))
+                { 
+                    Hobby model = hobbyVM.Hobby;
+                    if (hobbyVM.picPath != null)
+                    {
+                        model.HobbyImage = _imageConverter.FilePNGToByteArray(hobbyVM.picPath);
+                    }
+                    context.Hobbies.Add(model);
+                    context.SaveChanges();
+                }
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -66,7 +79,15 @@ namespace MVC_Project_2022_10_02.Controllers
         // GET: HobbiesController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            using (var context = new ContextFactory().CreateDbContext(new string[0]))
+            {
+                Hobby model = context.Hobbies.Find(id);
+                if (model == null)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(model);
+            }
         }
 
         // POST: HobbiesController/Delete/5
@@ -74,13 +95,19 @@ namespace MVC_Project_2022_10_02.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
         {
-            try
+            using (var context = new ContextFactory().CreateDbContext(new string[0]))
             {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
+                try
+                {
+                    Hobby hobby = context.Hobbies.Find(id);
+                    context.Hobbies.Remove(hobby);
+                    context.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    return View();
+                }
             }
         }
     }

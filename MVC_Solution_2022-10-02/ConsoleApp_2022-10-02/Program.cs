@@ -16,6 +16,8 @@ namespace ConsoleApp_2022_10_02
 
             //}
 
+            
+
 
             using (var context = new ContextFactory().CreateDbContext(new string[0]))
             {

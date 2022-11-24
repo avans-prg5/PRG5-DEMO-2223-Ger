@@ -1,10 +1,14 @@
-﻿@model IEnumerable<MyDomain.Models.Person>
+﻿
+@model IEnumerable<MyDomain.Models.Person>
 
 @{
     ViewData["Title"] = "Index";
 }
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment HostingEnvironment
+@*@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer*@
 
-<h1>Persons</h1>
+<div class="GS_body2">
+<h1>Personen</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -31,9 +35,22 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
-            <td>
-                 <img src="~/Content/pics/@{@item.FirstName}_@{@item.LastName}@ViewBag.postfix" alt="@item.FullName" height="50px">
+    <tr>
+        <td>
+            
+            @{
+                var curfile = String.Format("{0}{1}{2}{3}", @item.FirstName, "_", @item.LastName, @ViewBag.postfix);
+                if (HostingEnvironment.ContentRootFileProvider.GetFileInfo(curfile).Exists)
+                {
+                        <img src="~/Content/pics/@curfile" alt="@item.FullName" height="50"/>
+                }
+                else
+                {
+                    <img src="~/Content/pics/unknown.png" alt="@item.FullName" height="50"/>
+                }
+            }
+         
+  
             </td>
             <td style="font-size:larger">
                 @Html.DisplayFor(modelItem => item.FirstName)
@@ -61,3 +78,4 @@
 }
     </tbody>
 </table>
+</div>

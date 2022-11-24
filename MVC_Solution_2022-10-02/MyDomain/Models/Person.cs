@@ -1,5 +1,7 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyDomain.Models
 {
@@ -14,6 +16,10 @@ namespace MyDomain.Models
 
         public string? LastName { get; set; }
 
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/mm/yyyy}")]
+        [Column(TypeName = "Date")]
+        [DisplayName("Date of birth")]
+        [DataType(DataType.Date)]
         public DateTime? Birthdate { get; set; }
 
         public virtual ICollection<Hobby> Hobbies { get; set; } = null!;
