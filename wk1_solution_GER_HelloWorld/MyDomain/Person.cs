@@ -30,7 +30,7 @@
                         a--;
                     }
                 }
-                else if (DateTime.Now.Day < Birthdate.Day)
+                else if (DateTime.Now.Month < Birthdate.Month)
                 {
                     a--;
                 }

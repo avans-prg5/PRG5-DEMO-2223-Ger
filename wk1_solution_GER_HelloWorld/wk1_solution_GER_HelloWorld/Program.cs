@@ -14,19 +14,19 @@ namespace wk1_solution_GER_HelloWorld
 
             //part 2
             Person p = new Person();
-            Console.Write("Enter your  first name: ");
-            p.Firstname = Console.ReadLine();
-            Console.Write("Enter your middle name: ");
-            p.MiddleName = Console.ReadLine();
-            Console.Write("Enter your   last name: ");
-            p.LastName = Console.ReadLine();
+            //Console.Write("Enter your  first name: ");
+            //p.Firstname = Console.ReadLine();
+            //Console.Write("Enter your middle name: ");
+            //p.MiddleName = Console.ReadLine();
+            //Console.Write("Enter your   last name: ");
+            //p.LastName = Console.ReadLine();
 
             bool correct = false;
             DateTime bday = new DateTime(2000, 1, 1);
 
             while (!correct)
             {
-                Console.Write("Enter your date of birth (yyyy,m, d) : ");
+                Console.Write("Enter your date of birth (yyyy,m,d) : ");
                 string? instr = Console.ReadLine();
                 if (instr != null)
                 {
